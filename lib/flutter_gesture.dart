@@ -8,7 +8,6 @@ class FlutterGesture extends StatefulWidget {
 class _FlutterGestureState extends State<FlutterGesture> {
   String printString = '';
   double moveX = 0;
-
   double moveY = 0;
 
   @override
@@ -32,6 +31,7 @@ class _FlutterGestureState extends State<FlutterGesture> {
             children: <Widget>[
               Column(
                 children: <Widget>[
+                  Image.asset('images/qq.png'),
                   GestureDetector(
                     onTap: () => _printMsg('点击'),
                     onDoubleTap: () => _printMsg('双击'),

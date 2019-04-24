@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/flutter_gesture.dart';
 import 'package:flutter_xiecheng/flutter_layout.dart';
+import 'package:flutter_xiecheng/flutter_photo.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FlutterGesture(),
+      home: FlutterPhoto(),
     );
   }
 }
