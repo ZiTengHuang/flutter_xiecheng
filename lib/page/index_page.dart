@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_xiecheng/service/service_method.dart';
 import 'package:flutter_xiecheng/model/home_model.dart';
+import 'package:flutter_xiecheng/widget/grid_nav.dart';
 import 'package:flutter_xiecheng/widget/local_nav.dart';
+import 'package:flutter_xiecheng/widget/sub_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -20,7 +22,8 @@ class _IndexPageState extends State<IndexPage> {
   ];
   double appBarAlpha = 0;
   List<LocalNavList> localNavList = [];
-
+  GridNav gridNavModel;
+  List<SubNavList> subNavList = [];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -57,7 +60,16 @@ class _IndexPageState extends State<IndexPage> {
                       pagination: SwiperPagination(),
                     ),
                   ),
-                  LocalNav(localNavModel: localNavList,),
+                  LocalNav(
+                    localNavModel: localNavList,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(7, 4, 7, 4),
+                    child: GridNavWidget(gridNavModel: gridNavModel),
+                  ),
+
+                    SubNav(subNavModel: subNavList,),
+
                 ],
               ),
             ),
@@ -75,7 +87,6 @@ class _IndexPageState extends State<IndexPage> {
               ),
             ),
           ),
-
         ],
       ),
     );
@@ -113,6 +124,8 @@ class _IndexPageState extends State<IndexPage> {
 //       print(homeModel.bannerList[3].icon);
       setState(() {
         localNavList = homeModel.localNavList;
+        gridNavModel = homeModel.gridNav;
+        subNavList = homeModel.subNavList;
       });
     });
   }
